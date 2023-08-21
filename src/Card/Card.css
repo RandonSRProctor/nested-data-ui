@@ -1,0 +1,33 @@
+.Card {
+  transition: 1s;
+  border-style: solid;
+  border-radius: 0.25rem;
+  position: relative;
+  background-color: antiquewhite;
+}
+
+.Card--undecided {
+  height: 50%;
+  width: 50%;
+  border-width: 0.25rem;
+  border-color: black;
+}
+
+.Card--selected {
+  height: 100%;
+  width: 100%;
+  border-width: 0rem;
+  border-color: white;
+}
+
+.Card__title {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.Card__button {
+  position: absolute;
+  top: 3rem;
+  left: 1rem;
+}
