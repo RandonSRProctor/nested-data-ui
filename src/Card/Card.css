@@ -7,27 +7,37 @@
 }
 
 .Card--undecided {
-  height: 50%;
+  height: 100%;
+  width: 50%;
+  border-width: 0.25rem;
+  border-color: black;
+}
+
+.Card--undecided--first {
+  height: 50vh;
   width: 50%;
   border-width: 0.25rem;
   border-color: black;
 }
 
 .Card--selected {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
+  border-width: 0rem;
+  border-color: white;
+}
+.Card--focused {
+  height: 100vh;
+  width: 100vw;
   border-width: 0rem;
   border-color: white;
 }
 
-.Card__title {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
+.Card__top-half {
+  height: 50%;
 }
 
-.Card__button {
-  position: absolute;
-  top: 3rem;
-  left: 1rem;
+.Card__bottom-half {
+  height: 50%;
+  width: 100%;
 }
