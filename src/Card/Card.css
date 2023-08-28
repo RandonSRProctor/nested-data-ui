@@ -3,7 +3,7 @@
   border-style: solid;
   border-radius: 0.25rem;
   position: relative;
-  background-color: antiquewhite;
+  background-color: seashell;
 }
 
 .Card--undecided {
@@ -37,7 +37,7 @@
   height: 50%;
 }
 
-.Card__bottom-half {
+.NestedCards {
   height: 50%;
   width: 100%;
 }
