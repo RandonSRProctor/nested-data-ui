@@ -2,9 +2,9 @@ import { Dispatch } from 'react';
 import './Card.css';
 import { Title } from './Title/Title';
 import { deriveClassName, makeArrayOfKeys } from './utils';
-import { NestedCards } from './NestedCards/NestedCards';
+import { ChildrenNodeCards } from './ChildrenNodeCards/ChildrenNodeCards';
 
-export type CardProps = {
+export type RootNodeCardProps = {
   title?: string;
   nodeOfTree: any;
   depth?: number;
@@ -12,13 +12,13 @@ export type CardProps = {
   setDepthOfFocus: Dispatch<number>;
 };
 
-export function Card({
+export function RootNodeCard({
   title,
   nodeOfTree,
   depth = 0,
   depthOfFocus = 0,
   setDepthOfFocus,
-}: CardProps) {
+}: RootNodeCardProps) {
   if (!nodeOfTree || typeof nodeOfTree !== 'object') {
     return <></>;
   }
@@ -39,7 +39,7 @@ export function Card({
         <Title title={title} />
       </div>
 
-      <NestedCards
+      <ChildrenNodeCards
         cardTitles={contentKeyIndexesOrValues}
         cardProps={{
           depth: depth + 1,
