@@ -1,11 +1,12 @@
 import { Dispatch } from 'react';
 import './Card.css';
-import { Title } from './Title/Title';
 import { deriveClassName, makeArrayOfKeys } from './utils';
-import { ChildrenNodeCards } from './ChildrenNodeCards/ChildrenNodeCards';
+import { BottomHalf } from './BottomHalf/BottomHalf';
+import { ChildrenNodeCards } from './BottomHalf/ChildrenNodeCards/ChildrenNodeCards';
+import { TopHalf } from './TopHalf/TopHalf';
 
 export type NodeCardProps = {
-  title?: string;
+  title: string;
   nodeReference: any;
   cardDepth: number;
   depthOfFocus: number;
@@ -14,20 +15,20 @@ export type NodeCardProps = {
 
 export function NodeCard({
   title,
-  nodeReference,
-  cardDepth,
+  nodeReference: thisNodeReference,
+  cardDepth: thisCardDepth,
   depthOfFocus = 0,
   setDepthOfFocus,
 }: NodeCardProps) {
-  if (!nodeReference || typeof nodeReference !== 'object') {
+  if (!thisNodeReference || typeof thisNodeReference !== 'object') {
     return <></>;
   }
-  const contentKeyIndexesOrValues = makeArrayOfKeys(nodeReference);
-  const cardClassName = deriveClassName(cardDepth, depthOfFocus);
+  const contentKeyIndexesOrValues = makeArrayOfKeys(thisNodeReference);
+  const cardClassName = deriveClassName(thisCardDepth, depthOfFocus);
 
   function focusOnCard(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     event.stopPropagation();
-    setDepthOfFocus(cardDepth);
+    setDepthOfFocus(thisCardDepth);
   }
 
   return (
@@ -35,23 +36,20 @@ export function NodeCard({
       onClick={focusOnCard}
       className={` ${cardClassName} Card flex flex-col items-center justify-end`}
     >
-      <div className="Card__top-half">
-        <Title title={title} />
-      </div>
-
-      <ChildrenNodeCards
-        cardTitles={contentKeyIndexesOrValues}
-        cardProps={{
-          cardDepth: cardDepth + 1,
-          nodeReference: nodeReference[contentKeyIndexesOrValues[0]],
-          depthOfFocus: depthOfFocus,
-          setDepthOfFocus: setDepthOfFocus,
-        }}
-      />
+      <TopHalf title={title} />
+      <BottomHalf>
+        <ChildrenNodeCards
+          keys={contentKeyIndexesOrValues}
+          nodeDepth={thisCardDepth + 1}
+          parentNodeReference={thisNodeReference}
+          depthOfFocus={depthOfFocus}
+          setDepthOfFocus={setDepthOfFocus}
+        />
+      </BottomHalf>
     </div>
   );
 }
 
 // TODO: Make a11y expanded part of logic
-// Break "Card" into 3 types: "RootNode", "BranchNode", "EndNode"
+// TODO: Confront node "any" type
 // TODO: Distinguish "focused" from "selected"
