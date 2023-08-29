@@ -4,30 +4,30 @@ import { Title } from './Title/Title';
 import { deriveClassName, makeArrayOfKeys } from './utils';
 import { ChildrenNodeCards } from './ChildrenNodeCards/ChildrenNodeCards';
 
-export type RootNodeCardProps = {
+export type NodeCardProps = {
   title?: string;
-  nodeOfTree: any;
-  depth?: number;
+  nodeReference: any;
+  cardDepth: number;
   depthOfFocus: number;
   setDepthOfFocus: Dispatch<number>;
 };
 
-export function RootNodeCard({
+export function NodeCard({
   title,
-  nodeOfTree,
-  depth = 0,
+  nodeReference,
+  cardDepth,
   depthOfFocus = 0,
   setDepthOfFocus,
-}: RootNodeCardProps) {
-  if (!nodeOfTree || typeof nodeOfTree !== 'object') {
+}: NodeCardProps) {
+  if (!nodeReference || typeof nodeReference !== 'object') {
     return <></>;
   }
-  const contentKeyIndexesOrValues = makeArrayOfKeys(nodeOfTree);
-  const cardClassName = deriveClassName(depth, depthOfFocus);
+  const contentKeyIndexesOrValues = makeArrayOfKeys(nodeReference);
+  const cardClassName = deriveClassName(cardDepth, depthOfFocus);
 
   function focusOnCard(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     event.stopPropagation();
-    setDepthOfFocus(depth);
+    setDepthOfFocus(cardDepth);
   }
 
   return (
@@ -42,8 +42,8 @@ export function RootNodeCard({
       <ChildrenNodeCards
         cardTitles={contentKeyIndexesOrValues}
         cardProps={{
-          depth: depth + 1,
-          nodeOfTree: nodeOfTree[contentKeyIndexesOrValues[0]],
+          cardDepth: cardDepth + 1,
+          nodeReference: nodeReference[contentKeyIndexesOrValues[0]],
           depthOfFocus: depthOfFocus,
           setDepthOfFocus: setDepthOfFocus,
         }}

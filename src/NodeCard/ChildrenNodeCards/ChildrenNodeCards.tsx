@@ -1,8 +1,8 @@
-import { RootNodeCardProps, RootNodeCard } from '../RootNodeCard';
+import { NodeCardProps, NodeCard } from '../NodeCard';
 
 type ChildrenNodeCardsProps = {
   cardTitles: string[];
-  cardProps: RootNodeCardProps;
+  cardProps: NodeCardProps;
 };
 // TODO: Account for duplicate names.  For right now all must be unique
 export function ChildrenNodeCards({
@@ -12,7 +12,7 @@ export function ChildrenNodeCards({
   return (
     <div className="NestedCards flex items-end justify-center">
       {cardTitles.map(cardTitle => (
-        <RootNodeCard title={cardTitle} key={cardTitle} {...cardProps} />
+        <NodeCard title={cardTitle} key={cardTitle} {...cardProps} />
       ))}
     </div>
   );

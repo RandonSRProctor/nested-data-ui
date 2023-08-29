@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import { testObject } from './testObject';
 import { FloatControl } from './FloatControl/FloatControl';
-import { RootNodeCard } from './RootNodeCard';
+import { Root } from './Root/Root';
 
 function App() {
   const [depthOfFocus, setDepthOfFocus] = useState(-1);
@@ -13,10 +13,10 @@ function App() {
         setDepthOfFocus={setDepthOfFocus}
       />
       {/** Make a Title that animates fading smoothly handles timing **/}
-      <RootNodeCard
+      <Root
         depthOfFocus={depthOfFocus}
         setDepthOfFocus={setDepthOfFocus}
-        nodeOfTree={testObject}
+        data={testObject}
         title="Calendar"
       />
     </div>
