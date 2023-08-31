@@ -6,7 +6,7 @@ type TopHalfProps = {
 
 export function TopHalf({ title }: TopHalfProps) {
   return (
-    <div className="Card__top-hal">
+    <div className="Card__top-half">
       <Title title={title} />
     </div>
   );
