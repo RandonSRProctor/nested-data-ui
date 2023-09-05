@@ -5,10 +5,10 @@ export function deriveClassName(
   pathToCard: (number | string)[]
 ) {
   const isDeviant = testIsDeviant(selectedNodePath, pathToCard);
-  if (isDeviant) {
-    return 'Card--neglected';
-  }
+
   switch (true) {
+    case isDeviant:
+      return 'Card--neglected';
     case thisCardDepth < depthOfFocus:
       return 'Card--selected';
     case thisCardDepth === depthOfFocus:
@@ -39,7 +39,6 @@ function testIsDeviant(
     return false;
   }
   for (let i = 0; i < pathToCard.length; i++) {
-    //debugger;
     if (selectedNodePath[i] === undefined) {
       // this means you have passed all possible failpoints
       return false;
