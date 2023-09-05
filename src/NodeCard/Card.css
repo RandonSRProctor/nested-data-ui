@@ -3,14 +3,14 @@
   border-style: solid;
   border-radius: 0.25rem;
   position: relative;
-  background-color: seashell;
+  background-color: rgb(180, 233, 180);
 }
 
 .Card--undecided {
   height: 100%;
   width: 50%;
   border-width: 0.25rem;
-  border-color: black;
+  border-color: white;
 }
 
 .Card--undecided--first {
@@ -33,11 +33,20 @@
   border-color: white;
 }
 
-.Card__top-half {
-  height: 50%;
+.Card--neglected {
+  height: 0;
+  width: 0;
+  border-width: 0rem; /*was 0*/
+  border-color: white; /*was white*/
 }
 
-.NestedCards {
+.Card__top-half {
   height: 50%;
   width: 100%;
+}
+
+.BottomHalf {
+  height: 50%;
+  width: 100%;
+  background-color: white;
 }

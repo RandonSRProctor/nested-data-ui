@@ -6,6 +6,6 @@ type BottomHalfProps = {
 
 export function BottomHalf({ children }: BottomHalfProps) {
   return (
-    <div className="NestedCards flex items-end justify-center">{children}</div>
+    <div className="BottomHalf flex items-end justify-center">{children}</div>
   );
 }

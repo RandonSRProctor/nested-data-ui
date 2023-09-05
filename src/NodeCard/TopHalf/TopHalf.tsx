@@ -1,13 +1,9 @@
-import { Title } from './Title/Title';
+import { ReactNode } from 'react';
 
 type TopHalfProps = {
-  title: string;
+  children: ReactNode;
 };
 
-export function TopHalf({ title }: TopHalfProps) {
-  return (
-    <div className="Card__top-half">
-      <Title title={title} />
-    </div>
-  );
+export function TopHalf({ children }: TopHalfProps) {
+  return <div className="Card__top-half">{children}</div>;
 }
