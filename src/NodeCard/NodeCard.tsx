@@ -1,4 +1,5 @@
-import { Dispatch } from 'react';
+import { useContext } from 'react';
+import { Context } from '../App';
 import './Card.css';
 import { deriveClassName, makeArrayOfKeys } from './utils';
 import { BottomHalf } from './BottomHalf/BottomHalf';
@@ -11,10 +12,6 @@ export type NodeCardProps = {
   nodeReference: any;
   pathToCard: (string | number)[];
   cardDepth: number;
-  depthOfFocus: number;
-  setDepthOfFocus: Dispatch<number>;
-  selectedNodePath: (string | number)[];
-  setSelectedNodePath: Dispatch<(string | number)[]>;
 };
 
 /**
@@ -33,11 +30,14 @@ export function NodeCard({
   nodeReference: thisNodeReference,
   pathToCard,
   cardDepth: thisCardDepth,
-  depthOfFocus = 0,
-  setDepthOfFocus,
-  selectedNodePath,
-  setSelectedNodePath,
 }: NodeCardProps) {
+  const {
+    depthOfFocus = 0,
+    setDepthOfFocus,
+    selectedNodePath,
+    setSelectedNodePath,
+  } = useContext(Context);
+
   if (!thisNodeReference || typeof thisNodeReference !== 'object') {
     return <></>;
   }
@@ -72,10 +72,6 @@ export function NodeCard({
           nodeDepth={thisCardDepth + 1}
           pathToParentCard={pathToCard}
           parentNodeReference={thisNodeReference}
-          depthOfFocus={depthOfFocus}
-          setDepthOfFocus={setDepthOfFocus}
-          selectedNodePath={selectedNodePath}
-          setSelectedNodePath={setSelectedNodePath}
         />
       </BottomHalf>
     </div>

@@ -10,24 +10,13 @@ type RootProps = {
   setSelectedNodePath: Dispatch<(string | number)[]>;
 };
 
-export function Root({
-  title,
-  data,
-  depthOfFocus,
-  setDepthOfFocus,
-  selectedNodePath,
-  setSelectedNodePath,
-}: RootProps) {
+export function Root({ title, data }: RootProps) {
   return (
     <NodeCard
       title={title}
       nodeReference={data}
       pathToCard={[]}
       cardDepth={0}
-      depthOfFocus={depthOfFocus}
-      setDepthOfFocus={setDepthOfFocus}
-      selectedNodePath={selectedNodePath}
-      setSelectedNodePath={setSelectedNodePath}
     />
   );
 }
