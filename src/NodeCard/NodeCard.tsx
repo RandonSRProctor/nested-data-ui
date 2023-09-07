@@ -6,6 +6,7 @@ import { BottomHalf } from './BottomHalf/BottomHalf';
 import { ChildrenNodeCards } from './BottomHalf/ChildrenNodeCards/ChildrenNodeCards';
 import { TopHalf } from './TopHalf/TopHalf';
 import { Title } from './TopHalf/Title/Title';
+import { LeafNode } from './LeafNode/LeaveNode';
 
 export type NodeCardProps = {
   nodeKey: string; // nodeKey?
@@ -36,9 +37,8 @@ export function NodeCard({
     setSelectedNodePath,
   } = useContext(Context);
 
-  if (!thisNodeValue || typeof thisNodeValue !== 'object') {
-    return <></>;
-  }
+  const isValuePrimitive =
+    !Array.isArray(thisNodeValue) && typeof thisNodeValue !== 'object';
   const thisCardDepth = pathToCard.length;
   const contentKeyIndexesOrValues = makeArrayOfKeys(thisNodeValue);
   const cardClassName = deriveClassName(
@@ -61,17 +61,21 @@ export function NodeCard({
     >
       <TopHalf>
         <Title title={nodeKey} />
-        <p>Depth: {thisCardDepth}</p>
+        {/* <p>Depth: {thisCardDepth}</p>
         <p>This Card Path: {pathToCard}</p>
-        <p>Cuurent Selected Node Path: {selectedNodePath}</p>
+        <p>Cuurent Selected Node Path: {selectedNodePath}</p> */}
       </TopHalf>
       <BottomHalf>
-        <ChildrenNodeCards
-          keys={contentKeyIndexesOrValues}
-          nodeDepth={thisCardDepth + 1}
-          pathToParentCard={pathToCard}
-          parentNodeReference={thisNodeValue}
-        />
+        {isValuePrimitive ? (
+          <LeafNode value={thisNodeValue} />
+        ) : (
+          <ChildrenNodeCards
+            keys={contentKeyIndexesOrValues}
+            nodeDepth={thisCardDepth + 1}
+            pathToParentCard={pathToCard}
+            parentNodeReference={thisNodeValue}
+          />
+        )}
       </BottomHalf>
     </div>
   );

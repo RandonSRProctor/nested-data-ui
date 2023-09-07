@@ -3,44 +3,44 @@ export const testObject = {
     January: {
       22: {
         AM: {
-          first: 'this',
-          then: 'that',
+          first: 'class',
+          then: 'homework',
         },
         PM: {
-          first: 'this',
-          then: 'that',
+          first: 'nap',
+          then: 'party',
         },
       },
       23: {
         AM: {
-          first: 'this',
-          then: 'that',
+          first: 'class',
+          then: 'homework',
         },
         PM: {
-          first: 'this',
-          then: 'that',
+          first: 'nap',
+          then: 'party',
         },
       },
     },
     February: {
       3: {
         AM: {
-          first: 'this',
-          then: 'that',
+          first: 'class',
+          then: 'homework',
         },
         PM: {
-          first: 'this',
-          then: 'that',
+          first: 'nap',
+          then: 'party',
         },
       },
       4: {
         AM: {
-          first: 'this',
-          then: 'that',
+          first: 'class',
+          then: 'homework',
         },
         PM: {
-          first: 'this',
-          then: 'that',
+          first: 'nap',
+          then: 'party',
         },
       },
     },
@@ -50,44 +50,44 @@ export const testObject = {
     January: {
       22: {
         AM: {
-          first: 'this',
-          then: 'that',
+          first: 'class',
+          then: 'homework',
         },
         PM: {
-          first: 'this',
-          then: 'that',
+          first: 'nap',
+          then: 'party',
         },
       },
       23: {
         AM: {
-          first: 'this',
-          then: 'that',
+          first: 'class',
+          then: 'homework',
         },
         PM: {
-          first: 'this',
-          then: 'that',
+          first: 'nap',
+          then: 'party',
         },
       },
     },
     February: {
       3: {
         AM: {
-          first: 'this',
-          then: 'that',
+          first: 'class',
+          then: 'homework',
         },
         PM: {
-          first: 'this',
-          then: 'that',
+          first: 'nap',
+          then: 'party',
         },
       },
       4: {
         AM: {
-          first: 'this',
-          then: 'that',
+          first: 'class',
+          then: 'homework',
         },
         PM: {
-          first: 'this',
-          then: 'that',
+          first: 'nap',
+          then: 'party',
         },
       },
     },
