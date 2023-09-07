@@ -9,7 +9,6 @@ export type ChildrenNodeCardsProps = {
 // TODO: Account for duplicate names.  For right now all must be unique
 export function ChildrenNodeCards({
   keys,
-  nodeDepth: thisNodeDepth,
   parentNodeReference, // should we just derive the keys here instead?
   pathToParentCard,
 }: ChildrenNodeCardsProps) {
@@ -17,11 +16,10 @@ export function ChildrenNodeCards({
     <>
       {keys.map(key => (
         <NodeCard
-          title={key}
+          nodeKey={key}
           key={key}
-          cardDepth={thisNodeDepth}
           pathToCard={[...pathToParentCard, key]}
-          nodeReference={parentNodeReference[key]}
+          nodeValue={parentNodeReference[key]}
         />
       ))}
     </>

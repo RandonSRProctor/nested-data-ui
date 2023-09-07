@@ -8,10 +8,9 @@ import { TopHalf } from './TopHalf/TopHalf';
 import { Title } from './TopHalf/Title/Title';
 
 export type NodeCardProps = {
-  title: string;
-  nodeReference: any;
+  nodeKey: string; // nodeKey?
+  nodeValue: any[] | object; //nodeValue
   pathToCard: (string | number)[];
-  cardDepth: number;
 };
 
 /**
@@ -26,10 +25,9 @@ export type NodeCardProps = {
  */
 
 export function NodeCard({
-  title,
-  nodeReference: thisNodeReference,
+  nodeKey,
+  nodeValue: thisNodeValue,
   pathToCard,
-  cardDepth: thisCardDepth,
 }: NodeCardProps) {
   const {
     depthOfFocus = 0,
@@ -38,10 +36,11 @@ export function NodeCard({
     setSelectedNodePath,
   } = useContext(Context);
 
-  if (!thisNodeReference || typeof thisNodeReference !== 'object') {
+  if (!thisNodeValue || typeof thisNodeValue !== 'object') {
     return <></>;
   }
-  const contentKeyIndexesOrValues = makeArrayOfKeys(thisNodeReference);
+  const thisCardDepth = pathToCard.length;
+  const contentKeyIndexesOrValues = makeArrayOfKeys(thisNodeValue);
   const cardClassName = deriveClassName(
     thisCardDepth,
     depthOfFocus,
@@ -61,17 +60,17 @@ export function NodeCard({
       className={` ${cardClassName} Card flex flex-col items-center justify-end`}
     >
       <TopHalf>
-        <Title title={title} />
-        {/* <p>Depth: {thisCardDepth}</p>
+        <Title title={nodeKey} />
+        <p>Depth: {thisCardDepth}</p>
         <p>This Card Path: {pathToCard}</p>
-        <p>Cuurent Selected Node Path: {selectedNodePath}</p> */}
+        <p>Cuurent Selected Node Path: {selectedNodePath}</p>
       </TopHalf>
       <BottomHalf>
         <ChildrenNodeCards
           keys={contentKeyIndexesOrValues}
           nodeDepth={thisCardDepth + 1}
           pathToParentCard={pathToCard}
-          parentNodeReference={thisNodeReference}
+          parentNodeReference={thisNodeValue}
         />
       </BottomHalf>
     </div>
