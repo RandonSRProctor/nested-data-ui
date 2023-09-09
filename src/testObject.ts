@@ -44,7 +44,50 @@ export const testObject = {
         },
       },
     },
-    March: {},
+    March: {
+      8: {
+        AM: {
+          first: 'class',
+          then: 'homework',
+        },
+        PM: {
+          first: 'nap',
+          then: 'party',
+        },
+      },
+      9: {
+        AM: {
+          first: 'class',
+          then: 'homework',
+        },
+        PM: {
+          first: 'nap',
+          then: 'party',
+        },
+      },
+    },
+    April: {
+      11: {
+        AM: {
+          first: 'class',
+          then: 'homework',
+        },
+        PM: {
+          first: 'nap',
+          then: 'party',
+        },
+      },
+      12: {
+        AM: {
+          first: 'class',
+          then: 'homework',
+        },
+        PM: {
+          first: 'nap',
+          then: 'party',
+        },
+      },
+    },
   },
   2024: {
     January: {
@@ -81,6 +124,50 @@ export const testObject = {
         },
       },
       4: {
+        AM: {
+          first: 'class',
+          then: 'homework',
+        },
+        PM: {
+          first: 'nap',
+          then: 'party',
+        },
+      },
+    },
+    March: {
+      8: {
+        AM: {
+          first: 'class',
+          then: 'homework',
+        },
+        PM: {
+          first: 'nap',
+          then: 'party',
+        },
+      },
+      9: {
+        AM: {
+          first: 'class',
+          then: 'homework',
+        },
+        PM: {
+          first: 'nap',
+          then: 'party',
+        },
+      },
+    },
+    April: {
+      11: {
+        AM: {
+          first: 'class',
+          then: 'homework',
+        },
+        PM: {
+          first: 'nap',
+          then: 'party',
+        },
+      },
+      12: {
         AM: {
           first: 'class',
           then: 'homework',

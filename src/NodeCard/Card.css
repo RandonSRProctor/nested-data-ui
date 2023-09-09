@@ -4,11 +4,12 @@
   border-radius: 0.25rem;
   position: relative;
   background-color: rgb(180, 233, 180);
+  overflow: hidden;
 }
 
 .Card--undecided {
   height: 100%;
-  width: 50%;
+  width: 25%; /*This has to be a number to transition.  Make it dynamic*/
   border-width: 0.25rem;
   border-color: white;
 }
@@ -50,5 +51,6 @@
 .BottomHalf {
   height: 50%;
   width: 100%;
+  max-width: 100%;
   background-color: white;
 }
