@@ -3,13 +3,13 @@ import { NodeCard } from '../../NodeCard';
 import { makeArrayOfKeys } from '../../utils';
 
 export type ChildrenNodeCardsProps = {
-  pathToParentCard: (string | number)[];
+  breadcrumbsToParentNodeKey: (string | number)[];
   parentNodeValue: any; // <- Intentional "any"!
 };
 // TODO: Account for duplicate names.  For right now all must be unique
 export function ChildrenNodeCards({
   parentNodeValue,
-  pathToParentCard,
+  breadcrumbsToParentNodeKey,
 }: ChildrenNodeCardsProps) {
   const isValuePrimitive =
     !Array.isArray(parentNodeValue) && typeof parentNodeValue !== 'object';
@@ -25,9 +25,9 @@ export function ChildrenNodeCards({
         return (
           <NodeCard
             nodeKey={key}
-            key={key}
-            pathToCard={[...pathToParentCard, key]}
+            breadcrumbs={[...breadcrumbsToParentNodeKey, key]}
             nodeValue={parentNodeValue[key]}
+            numberOfSiblingsPlusSelf={keys.length}
           />
         );
       })}

@@ -1,7 +1,7 @@
 .Card {
   transition: 1s;
   border-style: solid;
-  border-radius: 0.25rem;
+  border-radius: 1rem;
   position: relative;
   background-color: rgb(180, 233, 180);
   overflow: hidden;

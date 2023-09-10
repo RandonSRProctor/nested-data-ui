@@ -11,5 +11,12 @@ type RootProps = {
 };
 
 export function Root({ title, data }: RootProps) {
-  return <NodeCard nodeKey={title} nodeValue={data} pathToCard={[]} />;
+  return (
+    <NodeCard
+      nodeKey={title}
+      nodeValue={data}
+      breadcrumbs={[]}
+      numberOfSiblingsPlusSelf={1}
+    />
+  );
 }

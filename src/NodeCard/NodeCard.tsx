@@ -8,9 +8,10 @@ import { TopHalf } from './TopHalf/TopHalf';
 import { Title } from './TopHalf/Title/Title';
 
 export type NodeCardProps = {
-  nodeKey: string; // nodeKey?
-  nodeValue: any[] | object; //nodeValue
-  pathToCard: (string | number)[];
+  nodeKey: string;
+  nodeValue: any[] | object;
+  breadcrumbs: (string | number)[];
+  numberOfSiblingsPlusSelf: number;
 };
 
 /**
@@ -27,7 +28,8 @@ export type NodeCardProps = {
 export function NodeCard({
   nodeKey,
   nodeValue: thisNodeValue,
-  pathToCard,
+  breadcrumbs,
+  numberOfSiblingsPlusSelf,
 }: NodeCardProps) {
   const {
     depthOfFocus = 0,
@@ -36,31 +38,38 @@ export function NodeCard({
     setSelectedNodePath,
   } = useContext(Context);
 
-  const thisCardDepth = pathToCard.length;
+  const thisCardDepth = breadcrumbs.length;
   const cardClassName = deriveClassName(
     thisCardDepth,
     depthOfFocus,
     selectedNodePath,
-    pathToCard
+    breadcrumbs
   );
 
   function focusOnCard(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     event.stopPropagation();
     setDepthOfFocus(thisCardDepth);
-    setSelectedNodePath([...pathToCard]);
+    setSelectedNodePath([...breadcrumbs]);
+  }
+
+  let style = {};
+  const percentOfWidth = 100 / numberOfSiblingsPlusSelf;
+  if (cardClassName === 'Card--undecided') {
+    style = { width: `${percentOfWidth}%` };
   }
 
   return (
     <div
       onClick={focusOnCard}
       className={` ${cardClassName} Card flex flex-col items-center justify-end`}
+      style={style}
     >
       <TopHalf>
         <Title title={nodeKey} />
       </TopHalf>
       <BottomHalf>
         <ChildrenNodeCards
-          pathToParentCard={pathToCard}
+          breadcrumbsToParentNodeKey={breadcrumbs}
           parentNodeValue={thisNodeValue}
         />
       </BottomHalf>
