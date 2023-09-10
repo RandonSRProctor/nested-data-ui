@@ -45,11 +45,17 @@ export function NodeCard({
     selectedNodePath,
     breadcrumbs
   );
+  const isFocused = cardClassName === 'Card--focused';
 
   function focusOnCard(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-    event.stopPropagation();
-    setDepthOfFocus(thisCardDepth);
-    setSelectedNodePath([...breadcrumbs]);
+    if (
+      cardClassName === 'Card--undecided' ||
+      cardClassName === 'Card--undecided--first'
+    ) {
+      event.stopPropagation();
+      setDepthOfFocus(thisCardDepth);
+      setSelectedNodePath([...breadcrumbs]);
+    }
   }
 
   let style = {};
@@ -64,7 +70,7 @@ export function NodeCard({
       className={` ${cardClassName} Card flex flex-col items-center justify-end`}
       style={style}
     >
-      <TopHalf>
+      <TopHalf isFocused={isFocused}>
         <Title title={nodeKey} />
       </TopHalf>
       <BottomHalf>

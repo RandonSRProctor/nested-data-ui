@@ -9,6 +9,7 @@ type ContextType = {
   setDepthOfFocus: Dispatch<number> | (() => void);
   selectedNodePath: (string | number)[];
   setSelectedNodePath: Dispatch<(string | number)[]> | (() => void);
+  decrementDepthOfFocus: () => void;
 };
 
 export const Context = createContext<ContextType>({
@@ -16,16 +17,22 @@ export const Context = createContext<ContextType>({
   setDepthOfFocus: () => undefined,
   selectedNodePath: [],
   setSelectedNodePath: () => undefined,
+  decrementDepthOfFocus: () => undefined,
 });
 
 function App() {
   const [depthOfFocus, setDepthOfFocus] = useState(-1);
   const [selectedNodePath, setSelectedNodePath] = useState<any[]>([]); //Not a fan of this any
+  const decrementDepthOfFocus = () => {
+    depthOfFocus > -1 && setDepthOfFocus(depthOfFocus - 1);
+    setSelectedNodePath(selectedNodePath.slice(0, -1));
+  };
   const contextState = {
     depthOfFocus,
     setDepthOfFocus,
     selectedNodePath,
     setSelectedNodePath,
+    decrementDepthOfFocus,
   };
 
   return (

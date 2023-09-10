@@ -8,13 +8,15 @@
 }
 
 .Card--undecided {
+  transition-timing-function: cubic-bezier(0.1, 1, 0.5, 1);
   height: 100%;
-  width: 25%; /*This has to be a number to transition.  Make it dynamic*/
+  /* width: 25%; <-- Set dynamically in NodeCard.tsx */
   border-width: 0.25rem;
   border-color: white;
 }
 
 .Card--undecided--first {
+  transition-timing-function: cubic-bezier(0.1, 1, 0.75, 1);
   height: 50vh;
   width: 50%;
   border-width: 0.25rem;

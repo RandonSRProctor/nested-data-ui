@@ -25,6 +25,7 @@ export function ChildrenNodeCards({
         return (
           <NodeCard
             nodeKey={key}
+            key={key}
             breadcrumbs={[...breadcrumbsToParentNodeKey, key]}
             nodeValue={parentNodeValue[key]}
             numberOfSiblingsPlusSelf={keys.length}
