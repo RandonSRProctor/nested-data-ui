@@ -12,13 +12,14 @@ export function ChildrenNodeCards({
   breadcrumbsToParentNodeKey,
 }: ChildrenNodeCardsProps) {
   const isValuePrimitive =
-    !Array.isArray(parentNodeValue) && typeof parentNodeValue !== 'object';
+    !Array.isArray(parentNodeValue) &&
+    (typeof parentNodeValue !== 'object' || parentNodeValue === null);
 
   if (isValuePrimitive) {
     return <LeafNode value={parentNodeValue} />;
   }
 
-  const keys = makeArrayOfKeys(parentNodeValue); // This needs to be updated.  No longer needs typeguarding
+  const keys = makeArrayOfKeys(parentNodeValue);
   return (
     <>
       {keys.map(key => {

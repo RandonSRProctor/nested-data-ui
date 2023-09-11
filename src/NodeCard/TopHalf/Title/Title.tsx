@@ -1,13 +1,13 @@
 import './Title.css';
 
 type TitleProps = {
-  title?: string;
+  title?: string | number;
 };
 
 export function Title({ title }: TitleProps) {
   return (
     <div>
-      <p className="Title">{title || 'Title Missing'}</p>
+      <p className="Title">{title}</p>
     </div>
   );
 }

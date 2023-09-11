@@ -5,5 +5,12 @@ type LeafNodeProps = {
 };
 
 export function LeafNode({ value }: LeafNodeProps) {
-  return <div className="LeafNode">{value}</div>;
+  let nullishGuardedValue = value;
+  if (value === null) {
+    nullishGuardedValue = 'null';
+  }
+  if (value === undefined) {
+    nullishGuardedValue = 'undefined';
+  }
+  return <div className="LeafNode">{nullishGuardedValue}</div>;
 }

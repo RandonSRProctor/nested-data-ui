@@ -1,9 +1,12 @@
-export function makeArrayOfKeys(nodeValue: object | undefined): string[] {
-  if (!nodeValue) {
-    return [];
-  }
+export function makeArrayOfKeys(
+  nodeValue: object | any[]
+): (string | number)[] {
+  let arrayOfKeys: (string | number)[] = [];
   if (typeof nodeValue === 'object') {
-    return Object.keys(nodeValue);
+    arrayOfKeys = Object.keys(nodeValue);
   }
-  return [];
+  if (Array.isArray(nodeValue)) {
+    arrayOfKeys = nodeValue.map((entry, index) => index);
+  }
+  return arrayOfKeys;
 }

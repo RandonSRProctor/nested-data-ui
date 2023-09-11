@@ -8,7 +8,7 @@ import { TopHalf } from './TopHalf/TopHalf';
 import { Title } from './TopHalf/Title/Title';
 
 export type NodeCardProps = {
-  nodeKey: string;
+  nodeKey: string | number;
   nodeValue: any[] | object;
   breadcrumbs: (string | number)[];
   numberOfSiblingsPlusSelf: number;
