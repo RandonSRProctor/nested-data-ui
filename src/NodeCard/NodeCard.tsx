@@ -48,10 +48,7 @@ export function NodeCard({
   const isFocused = cardClassName === 'Card--focused';
 
   function focusOnCard(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-    if (
-      cardClassName === 'Card--undecided' ||
-      cardClassName === 'Card--undecided--first'
-    ) {
+    if (cardClassName === 'Card--undecided') {
       event.stopPropagation();
       setDepthOfFocus(thisCardDepth);
       setSelectedNodePath([...breadcrumbs]);

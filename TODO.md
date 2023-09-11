@@ -2,6 +2,9 @@
 ✅ TODO: Move child discernement logic to ChildrenNodeCards
 ✅ TODO: Make Child width size dynamic
 ✅ TODO: Make back clicking simply the white space.
+// TODO: Get rid of "first" abstraction
+// TODO: Accomodate Arrays
+// TODO: Make root container query not viewport
 // TODO: Design cards to look like cards? (Rounded corners and shadows!)
 // TODO: When click happens, make all others fade first and THEN "zoom".
 // Update to Vite?
