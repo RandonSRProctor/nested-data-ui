@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import JSONVisualizer from './App';
+import JSONVisualizer from './JSONVisualizer';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

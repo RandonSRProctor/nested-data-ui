@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Context } from '../../App';
+import { Context } from '../../JSONVisualizer';
 
 export function UnselectButton() {
   const { decrementDepthOfFocus } = useContext(Context);
