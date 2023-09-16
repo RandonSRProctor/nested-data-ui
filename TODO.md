@@ -5,7 +5,7 @@
 ✅ TODO: Get rid of "first" abstraction
 ✅ TODO: Accomodate Arrays
 ✅ TODO: Accomodate primitive data types (including nullish values)
-// TODO: Make root container query not viewport
+✅ TODO: Make root container query not viewport
 // TODO: Design cards to look like cards? (Rounded corners and shadows!)
 // TODO: When click happens, make all others fade first and THEN "zoom".
 // Update to Vite?

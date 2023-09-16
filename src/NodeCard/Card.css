@@ -1,50 +1,52 @@
-.Card {
-  transition: 1s;
-  border-style: solid;
-  border-radius: 1rem;
-  position: relative;
-  background-color: rgb(180, 233, 180);
-  overflow: hidden;
-}
+@container root (min-width: 1px) {
+  .Card {
+    transition: 1s;
+    border-style: solid;
+    border-radius: 1rem;
+    position: relative;
+    background-color: rgb(180, 233, 180);
+    overflow: hidden;
+  }
 
-.Card--undecided {
-  transition-timing-function: cubic-bezier(0.1, 1, 0.5, 1);
-  height: 100%;
-  /* width: 25%; <-- Set dynamically in NodeCard.tsx */
-  border-width: 0.25rem;
-  border-color: white;
-}
+  .Card--undecided {
+    transition-timing-function: cubic-bezier(0.1, 1, 0.5, 1);
+    height: 100%;
+    /* width: 25%; <-- Set dynamically in NodeCard.tsx */
+    border-width: 0.25rem;
+    border-color: white;
+  }
 
-.Card--selected {
-  height: 100vh;
-  width: 100vw;
-  border-width: 0rem;
-  border-color: white;
-  background-color: white;
-}
-.Card--focused {
-  height: 100vh;
-  width: 100vw;
-  border-width: 0rem;
-  border-color: white;
-  background-color: white;
-}
+  .Card--selected {
+    height: 100cqh;
+    width: 100cqw;
+    border-width: 0rem;
+    border-color: white;
+    background-color: white;
+  }
+  .Card--focused {
+    height: 100cqh;
+    width: 100cqw;
+    border-width: 0rem;
+    border-color: white;
+    background-color: white;
+  }
 
-.Card--neglected {
-  height: 0;
-  width: 0;
-  border-width: 0rem; /*was 0*/
-  border-color: white; /*was white*/
-}
+  .Card--neglected {
+    height: 0;
+    width: 0;
+    border-width: 0rem; /*was 0*/
+    border-color: white; /*was white*/
+  }
 
-.Card__top-half {
-  height: 50%;
-  width: 100%;
-}
+  .Card__top-half {
+    height: 50%;
+    width: 100%;
+  }
 
-.BottomHalf {
-  height: 50%;
-  width: 100%;
-  max-width: 100%;
-  background-color: white;
+  .BottomHalf {
+    height: 50%;
+    width: 100%;
+    max-width: 100%;
+    background-color: white;
+  }
 }
