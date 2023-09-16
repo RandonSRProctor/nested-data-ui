@@ -1,6 +1,6 @@
 import { useState, createContext, Dispatch } from 'react';
 import './JSONVisualizer.css';
-import { testObject } from './testObject';
+import { testObject } from '../testObject';
 import { FloatControl } from './FloatControl/FloatControl';
 import { Root } from './Root/Root';
 

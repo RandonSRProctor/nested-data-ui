@@ -1,4 +1,4 @@
-import JSONVisualizer from './JSONVisualizer';
+import JSONVisualizer from './JSONVisualizer/JSONVisualizer';
 import './App.css';
 
 export function App() {
