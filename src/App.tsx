@@ -20,7 +20,7 @@ export const Context = createContext<ContextType>({
   decrementDepthOfFocus: () => undefined,
 });
 
-function App() {
+function JSONVisualizer() {
   const [depthOfFocus, setDepthOfFocus] = useState(-1);
   const [selectedNodePath, setSelectedNodePath] = useState<any[]>([]); //Not a fan of this any
   const decrementDepthOfFocus = () => {
@@ -53,4 +53,4 @@ function App() {
   );
 }
 
-export default App;
+export default JSONVisualizer;
