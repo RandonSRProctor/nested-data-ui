@@ -1,5 +1,5 @@
 import { useState, createContext, Dispatch } from 'react';
-import './App.css';
+import './JSONVisualizer.css';
 import { testObject } from './testObject';
 import { FloatControl } from './FloatControl/FloatControl';
 import { Root } from './Root/Root';
@@ -37,7 +37,7 @@ function JSONVisualizer() {
 
   return (
     <Context.Provider value={contextState}>
-      <div className="App h-screen flex flex-col items-center justify-end">
+      <div className="JSONVisualizer h-screen flex flex-col items-center justify-end">
         <FloatControl />
         {/** Make a Title that animates fading smoothly handles timing **/}
         <Root
