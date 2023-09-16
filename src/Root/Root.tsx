@@ -1,5 +1,5 @@
 import { Dispatch } from 'react';
-import { NodeCard } from '../NodeCard';
+import { NodeCard } from './NodeCard';
 
 type RootProps = {
   title: string;

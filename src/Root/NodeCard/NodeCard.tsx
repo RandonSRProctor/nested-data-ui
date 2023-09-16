@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Context } from '../JSONVisualizer';
+import { Context } from '../../JSONVisualizer';
 import './Card.css';
 import { deriveClassName } from './utils';
 import { BottomHalf } from './BottomHalf/BottomHalf';

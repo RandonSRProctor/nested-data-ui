@@ -1,5 +1,5 @@
 import { ReactNode, useContext } from 'react';
-import { Context } from '../../JSONVisualizer';
+import { Context } from '../../../JSONVisualizer';
 
 type TopHalfProps = {
   children: ReactNode;
