@@ -20,7 +20,11 @@ export const Context = createContext<ContextType>({
   decrementDepthOfFocus: () => undefined,
 });
 
-function JSONVisualizer() {
+type JSONVisualizerProps = {
+  data: any;
+};
+
+function JSONVisualizer({ data }: JSONVisualizerProps) {
   const [depthOfFocus, setDepthOfFocus] = useState(-1);
   const [selectedNodePath, setSelectedNodePath] = useState<any[]>([]); //Not a fan of this any
   const decrementDepthOfFocus = () => {
@@ -45,8 +49,8 @@ function JSONVisualizer() {
           setDepthOfFocus={setDepthOfFocus}
           selectedNodePath={selectedNodePath}
           setSelectedNodePath={setSelectedNodePath}
-          data={testObject}
-          title="Calendar"
+          data={data}
+          title=""
         />
       </div>
     </Context.Provider>

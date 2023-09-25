@@ -1,6 +1,6 @@
 .JSONVisualizer {
   text-align: center;
-  /* container-type: size;
-  container-name: root; */
   container: root / size;
+  height: 100%;
+  width: 100%;
 }
